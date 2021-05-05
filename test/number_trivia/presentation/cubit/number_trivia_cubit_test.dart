@@ -18,7 +18,7 @@ void main() {
       MockGetRandomNumberTrivia();
   MockInputConverter mockInputConverter = MockInputConverter();
 
-  NumbertriviaCubit cubit = NumbertriviaCubit(
+  NumberTriviaCubit cubit = NumberTriviaCubit(
     concrete: mockGetNumberTrivia,
     random: mockGetRandomNumberTrivia,
     inputConverter: mockInputConverter,
