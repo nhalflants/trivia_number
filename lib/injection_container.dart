@@ -4,10 +4,12 @@ import 'package:http/http.dart' as http;
 
 import 'core/network/data_connection_checker.dart';
 import 'core/network/network_info.dart';
+import 'core/usecases/usecase.dart';
 import 'core/utils/input_converter.dart';
 import 'number_trivia/data/datasources/number_trivia_local_data_source.dart';
 import 'number_trivia/data/datasources/number_trivia_remote_data_source.dart';
 import 'number_trivia/data/repositories/number_trivia_repository_impl.dart';
+import 'number_trivia/domain/entities/number_trivia.dart';
 import 'number_trivia/domain/repositories/number_trivia_repository.dart';
 import 'number_trivia/domain/usecases/get_number_trivia.dart';
 import 'number_trivia/domain/usecases/get_random_number_trivia.dart';
@@ -20,9 +22,9 @@ Future<void> init() async {
   // Bloc
   sl.registerFactory(
     () => NumberTriviaCubit(
-      concrete: sl(),
-      inputConverter: sl(),
-      random: sl(),
+      concrete: sl<GetNumberTrivia>(),
+      inputConverter: sl<InputConverter>(),
+      random: sl<GetRandomNumberTrivia>(),
     ),
   );
 
